@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Links the technician to a login where one exists. Blank for subcontractors - which is exactly why Technician is its own object.</description>
+    <inlineHelpText>Leave blank for subcontractors who do not have a Salesforce login.</inlineHelpText>
+    <label>Salesforce User</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>Technician Records</relationshipLabel>
+    <relationshipName>Technician_Records</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

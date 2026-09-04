@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Signature_Captured__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Signed off on site. Prerequisite for invoicing under the Phase 12 approval process.</description>
+    <label>Customer Signature Captured</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

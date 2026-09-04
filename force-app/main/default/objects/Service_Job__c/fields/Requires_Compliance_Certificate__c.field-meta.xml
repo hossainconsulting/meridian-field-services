@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requires_Compliance_Certificate__c</fullName>
+    <description>Electrical and HVAC work carries a statutory certificate obligation in NSW. Formula, not a manual checkbox, so it cannot be unticked to dodge the Phase 5 validation rule.</description>
+    <formula>OR(ISPICKVAL(Service_Type__c, "Electrical"), ISPICKVAL(Service_Type__c, "HVAC"))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Requires Compliance Certificate</label>
+    <type>Checkbox</type>
+</CustomField>

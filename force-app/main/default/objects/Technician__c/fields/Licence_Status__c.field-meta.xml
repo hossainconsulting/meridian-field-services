@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Licence_Status__c</fullName>
+    <description>Human-readable licence state derived from the expiry date. Unknown is treated as a defect, not a neutral value.</description>
+    <formula>IF(ISBLANK(Licence_Expiry__c), "Unknown",
+IF(Licence_Expiry__c &lt; TODAY(), "Expired",
+IF(Licence_Expiry__c &lt; TODAY() + 30, "Expiring soon",
+"Current")))</formula>
+    <formulaTreatBlanksAs>BlankAsBlank</formulaTreatBlanksAs>
+    <label>Licence Status</label>
+    <type>Text</type>
+</CustomField>

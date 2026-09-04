@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Currently on the roster. Inactive technicians are excluded from dispatch by the Phase 5 validation rule rather than deleted.</description>
+    <label>Active</label>
+    <type>Checkbox</type>
+</CustomField>
