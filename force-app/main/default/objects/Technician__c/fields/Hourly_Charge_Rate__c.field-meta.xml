@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hourly_Charge_Rate__c</fullName>
+    <description>Rate charged to the customer, not the rate paid to the technician. Kept separate so cost data can stay out of the field-facing page layout.</description>
+    <label>Hourly Charge Rate</label>
+    <precision>8</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Currency</type>
+</CustomField>

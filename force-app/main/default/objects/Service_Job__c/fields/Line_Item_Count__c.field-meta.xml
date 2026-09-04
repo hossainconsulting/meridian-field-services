@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Line_Item_Count__c</fullName>
+    <description>Number of lines. A zero here on an Invoiced job is a data-quality defect the Phase 6 cleanup reports on.</description>
+    <label>Line Item Count</label>
+    <summaryForeignKey>Job_Line_Item__c.Service_Job__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <type>Summary</type>
+</CustomField>
