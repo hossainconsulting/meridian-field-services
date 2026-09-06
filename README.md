@@ -55,6 +55,27 @@ completed jobs with no technician, electrical work with no compliance
 certificate. That is the raw material for the data-quality and cleanup phases;
 `seed/README.md` catalogues all 21 defect classes.
 
+## For recruiters and agencies
+
+**What this repository evidences:** Platform App Builder work — a data model designed
+before anything is clicked, custom objects and fields retrieved as metadata, list views,
+and Apex seed data that loads a catalogued set of defects for the later phases to fix.
+
+**State as at 06/09/2026:** Phase 1 of 18 built. The plan for the remaining phases, with
+acceptance criteria, is written and the org is provisioned.
+
+**Read these first (ten minutes):**
+
+1. [`deliverables/01-data-model-design.md`](deliverables/01-data-model-design.md) — the objects, the relationships, and the lookup-versus-master-detail decisions
+2. [`deliverables/implementation-plan.md`](deliverables/implementation-plan.md) — all 18 phases with deliverables and acceptance criteria
+3. [`seed/README.md`](seed/README.md) — the 21-class defect catalogue the seed data carries on purpose
+4. [`force-app/main/default/objects/`](force-app/main/default/objects/) — the metadata as retrieved from the org
+
+**How to verify:** every change is in the build log with its date and the requirement it
+traces to; corrections are appended, never edited over. The
+[skill-to-evidence map](https://portfolio.hossainconsulting.com/#evidence) on the portfolio shows where each certification is
+applied, and the [hiring page](https://portfolio.hossainconsulting.com/#hire) says what I am open to.
+
 ---
 
 Built by [Hemayet Hossain](https://github.com/hossainconsulting) · Sydney, Australia
