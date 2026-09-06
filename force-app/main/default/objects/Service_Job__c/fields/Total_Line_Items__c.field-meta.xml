@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Line_Items__c</fullName>
+    <description>Roll-up of every line on the job. The reason line items are master-detail rather than lookup.</description>
+    <label>Total Line Items</label>
+    <summarizedField>Job_Line_Item__c.Line_Total__c</summarizedField>
+    <summaryForeignKey>Job_Line_Item__c.Service_Job__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <type>Summary</type>
+</CustomField>

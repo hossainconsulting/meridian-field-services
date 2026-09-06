@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assigned_Technician__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Technician responsible for attending. History-tracked: reassignment disputes are the most common source of 'who was meant to be there' arguments.</description>
+    <label>Assigned Technician</label>
+    <referenceTo>Technician__c</referenceTo>
+    <relationshipLabel>Service Jobs</relationshipLabel>
+    <relationshipName>Service_Jobs</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Job_Value__c</fullName>
+    <description>Lines plus callout fee, excluding GST. The headline revenue figure for the Phase 14 dashboards.</description>
+    <formula>Total_Line_Items__c + BLANKVALUE(Callout_Fee__c, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Job Value</label>
+    <precision>16</precision>
+    <scale>2</scale>
+    <type>Currency</type>
+</CustomField>
