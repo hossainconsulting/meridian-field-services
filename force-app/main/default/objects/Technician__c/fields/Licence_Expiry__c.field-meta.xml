@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Licence_Expiry__c</fullName>
+    <description>Licence expiry date. The Phase 11 scheduled flow warns on this 30 days out.</description>
+    <label>Licence Expiry</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

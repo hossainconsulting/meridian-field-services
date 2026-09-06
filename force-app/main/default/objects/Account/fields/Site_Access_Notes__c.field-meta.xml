@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site_Access_Notes__c</fullName>
+    <description>Standing access instructions - gate codes, dog on site, loading dock hours. Held once on the account instead of retyped onto every job.</description>
+    <inlineHelpText>Instructions that apply to every visit. Job-specific notes belong on the job.</inlineHelpText>
+    <label>Site Access Notes</label>
+    <length>4000</length>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

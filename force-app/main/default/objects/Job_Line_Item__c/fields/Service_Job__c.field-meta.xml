@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Job__c</fullName>
+    <description>The parent job. Master-detail, not lookup: a line has no meaning without its job, the job value must roll up, and lines should inherit job sharing rather than carry their own.</description>
+    <label>Service Job</label>
+    <referenceTo>Service_Job__c</referenceTo>
+    <relationshipLabel>Job Line Items</relationshipLabel>
+    <relationshipName>Job_Line_Items</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

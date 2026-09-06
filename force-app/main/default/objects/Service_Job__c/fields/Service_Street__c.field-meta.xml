@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Street__c</fullName>
+    <description>Street address of the work site. Deliberately separate from the account billing address: strata and agent customers are billed at one address and served at many.</description>
+    <externalId>false</externalId>
+    <label>Service Street</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
