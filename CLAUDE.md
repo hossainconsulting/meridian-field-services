@@ -4,66 +4,95 @@ This file provides guidance to Claude Code (claude.ai/code) when working in this
 
 ## What this is
 
-Engagement workspace for the **Meridian Field Services** implementation — an
-18-phase Platform App Builder simulation. Hemayet plays the implementation
-consultant at a fictional Sydney plumbing, electrical and HVAC company running
-its business on spreadsheets and a group text thread.
+Engagement workspace for the **Meridian Field Services implementation** — eighteen
+phases against the **Platform App Builder** track. An end-to-end Salesforce
+implementation for a fictional Sydney plumbing, electrical and HVAC company currently
+running its business on spreadsheets and a group text thread.
 
-The certification track is **Platform App Builder**, so the work is declarative
-build: data model, Lightning app, security, reporting, mobile, automation, page
-design, release management. Apex is not the point here and mostly should not
-appear outside `seed/`.
+Meridian Field Services Pty Ltd is fictional; no real customer data is in here.
+
+**Current state: scaffold.** `force-app/`, `seed/` and `evidence/` hold only
+`.gitkeep`. Only `sfdx-project.json` (API version 67.0) exists beyond the README.
+
+## Not the same company as Meridian Appliance Care
+
+`agentforce-meridian-care` is a **different fictional client** — Meridian Appliance
+Care Pty Ltd, a warranty administrator, on the Agentforce Specialist track. The shared
+"Meridian" name is a naming collision across two engagements, not a shared org, data
+model or brief. Never carry a design decision, object name or seed script between the
+two without re-deriving it.
 
 ## The org
 
-Target org alias **`meridian`** — a dedicated Developer Edition org. Do not build
-into another program org; each org is allocated to one certification track and
-cross-contaminating them ruins the evidence.
+Target org alias **`meridian`** — a Developer Edition org.
 
 ```bash
 sf org display --target-org meridian
-sf org list metadata --metadata-type CustomObject --target-org meridian
+sf data query --target-org meridian --query "SELECT COUNT() FROM Account"
 ```
 
-Every Developer Edition org in this program has provisioned as US locale despite
-Australia being selected at signup, and has arrived carrying 13 stock Salesforce
-sample Accounts. Check both before seeding — see the `ironbark` and `kurrajong`
-build logs for the pattern and the fix.
+Every other org in this program provisioned as US despite the signup form, and needed
+Country, locale, time zone and **Currency Locale** corrected to Australian. Currency
+Locale is not settable through the API in a single-currency org — Setup → Company
+Information → Edit. Check this org and fix it **before seeding anything with an amount
+on it**. Stock Salesforce sample data (typically 13 Accounts) should also be purged
+before seeding; the pattern is `seed/00-purge-sample-data.apex` in the
+**sunrise-solar-internship** repo.
 
-## The division of labour
+## What Platform App Builder actually tests
 
-**Hemayet builds all Setup configuration by hand** — objects, fields, record types,
-page layouts, Lightning pages, flows, reports, permission sets. Platform App
-Builder tests Setup navigation and so does the job. Do not build config via the
-Metadata API on his behalf unless he asks explicitly.
+This track is declarative build, and the review lens differs from the consultant tracks:
+the question is not "did you gather the requirement" but "is this the right declarative
+construct, and will it survive." Specifically —
 
-**Claude does:** seed data (Apex anonymous in `seed/`), verification queries, ERD
-and documentation drafting, build-log entries, code review, deployment mechanics,
-and playing stakeholders in character for discovery exercises.
+- **Data model before anything else.** Objects, relationships and the choice between
+  lookup and master-detail are the decisions everything downstream inherits. A
+  master-detail chosen for convenience is the one that hurts eighteen phases later.
+- **Automation belongs in one place per object.** Pick the tool deliberately (Flow vs.
+  validation rule vs. formula) and record why; overlapping automation on one object is
+  the classic App Builder failure.
+- **Security model is part of the design, not a phase-14 afterthought** — org-wide
+  defaults, role hierarchy, sharing rules and field-level security follow from the data
+  model, so they get decided with it.
+- **Release management is in scope** (phase 18). Whatever is built by hand must be
+  retrievable into `force-app/` and describable as a deployable change set.
 
-## Repository conventions
+## The division of labour on this engagement
 
-| Folder | Contents |
-|---|---|
-| `force-app/` | Metadata **retrieved from** the org, not authored here. It records what was clicked. |
-| `seed/` | Apex anonymous scripts that build starting data, including its deliberate defects |
-| `deliverables/` | The written work — design docs, SOPs, analyses, runbooks. This is the substance. |
-| `evidence/` | Before/after screenshots and test results, per phase |
+**Hemayet builds all Setup configuration by hand** — objects, fields, relationships,
+record types, Lightning app and pages, Flows, validation rules, reports and dashboards,
+mobile layouts. The certification tests Setup navigation and so does the job. Do not
+build config via the Metadata API on his behalf unless he asks explicitly.
 
-`deliverables/build-log.md` is the spine: every change with its date, component,
-type, what changed, and the requirement it traces to. It is currently an empty
-table — a phase is not finished until it has a row.
+**Claude does:** seed data (Apex anonymous in `seed/`), including the deliberate defects
+the engagement depends on; verification queries; evidence extraction; code review;
+deployment mechanics; ERD and documentation drafting; and playing stakeholders in
+character for discovery exercises.
 
-## Current state
+## Documentation standards
 
-Scaffold only. `force-app/`, `seed/` and `evidence/` hold nothing but `.gitkeep`,
-and the build log has no entries. Phase 1 has not started, so do not write
-documentation that implies it has.
+`deliverables/` is the substance and the interview evidence. The configuration proves
+the clicks happened; the documents prove the thinking did.
 
-## Rules worth enforcing in review
+- **Every change goes in `deliverables/build-log.md`** with its date, the component, the
+  change, and the requirement it traces to. Corrections are appended as new rows, never
+  edited over.
+- **Claim only what was verified** — a query or a screenshot backs every "verified".
+- **Accepted risks are recorded, not hidden.** Where a training-org shortcut is taken,
+  say what production would have required instead.
+- **Dates are Australian** — `dd/mm/yyyy`.
+- `evidence/` holds before/after extracts and screenshots per phase.
 
-- The deliberate defects in seed data are the exercise. Do not quietly fix bad
-  data that a phase is supposed to discover and remediate.
-- Retrieved metadata should match what is actually in the org. Hand-editing
-  `force-app/` to look tidier than the org makes the evidence a lie.
-- Never commit an sfdx auth URL. It is a full credential — see `.gitignore`.
+## Never commit
+
+Auth files and sfdx auth URLs — an auth URL is a full credential. `.gitignore` covers
+`**/*authFile*.json`, `**/*sfdxAuthUrl*`, `.env*`, `.sf/` and `.sfdx/`. A credential
+that reaches git history has to be *rotated*, not deleted.
+
+## Agent workflow
+
+Superpowers is expected to be installed as a **user-level plugin**
+(`/plugin install superpowers@claude-plugins-official`), not vendored into this repo.
+There is no test runner here and most work is Setup configuration, so the red/green TDD
+skills have little to bite on; the planning, verification and code-review skills apply
+to the seed scripts and the written deliverables.
