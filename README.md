@@ -29,6 +29,12 @@ the documents prove the thinking did.
 Build log lives in `deliverables/build-log.md` — every change with its date,
 reason, and the requirement it traces to.
 
+## Verified Salesforce credentials
+
+Hemayet Hossain holds four credentials verified through Salesforce's public credential record: Salesforce Certified Agentforce Specialist, Salesforce Certified Platform Administrator II, Salesforce Certified Platform App Builder, and Salesforce Certified Platform Administrator.
+
+[View the public Salesforce credential record](https://trailhead.salesforce.com/en/credentials/certification-detail-print/?searchString=/EMytG9drkgo/H4/0tgVITa/sw2U8vhbkvkc3jqlaJgauY5cCr+PvNo4YAw1Ki9f) · [Review the Salesforce User Lifecycle SOP](https://github.com/hossainconsulting/salesforce-user-lifecycle-sop)
+
 ---
 
 Built by [Hemayet Hossain](https://github.com/hossainconsulting) · Sydney, Australia
