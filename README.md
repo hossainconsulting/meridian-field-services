@@ -44,3 +44,18 @@ Hemayet Hossain holds four credentials verified through Salesforce's public cred
 
 Built by [Hemayet Hossain](https://github.com/hossainconsulting) · Sydney, Australia
 Portfolio: [portfolio.hossainconsulting.com](https://portfolio.hossainconsulting.com)
+
+---
+
+## Connect
+
+Built by **Hemayet Hossain**, Salesforce administrator and implementation
+consultant, Sydney, Australia. This is one of eight projects
+published in full; the complete record and the certification track are on the
+portfolio.
+
+[Portfolio](https://portfolio.hossainconsulting.com/?utm_source=github&utm_medium=readme&utm_campaign=meridian-field-services) ·
+[All links](https://portfolio.hossainconsulting.com/links) ·
+[GitHub](https://github.com/hossainconsulting) ·
+[LinkedIn](https://www.linkedin.com/company/hossain-consulting) ·
+[Instagram](https://www.instagram.com/hossainconsulting/)
