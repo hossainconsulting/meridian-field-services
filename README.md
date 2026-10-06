@@ -6,6 +6,7 @@
 
 **Certification track:** Platform App Builder
 **Salesforce org:** Developer Edition (CLI alias `meridian`)
+**Lab:** working copy maintained on `salesforce-dev` (Ubuntu 24.04 LTS, VirtualBox VM on my own hardware). `salesforce-dev` is my role name for the Ubuntu lab.
 **Scope:** 18 phases | data model, Lightning app, security, reporting, mobile, automation, page design, release management
 
 ## The brief
